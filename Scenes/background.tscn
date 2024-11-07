@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bac0lxk02ksxf"]
+
+[ext_resource type="Texture2D" uid="uid://cjrg1h2ypyuq2" path="res://Assets/fb_background1.png" id="1_8chwl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2xhfo"]
+
+[node name="background" type="Node2D"]
+
+[node name="BackgroundDay" type="Sprite2D" parent="."]
+position = Vector2(581, 234)
+scale = Vector2(8.08, 4)
+texture = ExtResource("1_8chwl")
+region_enabled = true
+region_rect = Rect2(0, 0, 144, 256)
+
+[node name="Ground" type="Area2D" parent="."]
+position = Vector2(387, 647)
+scale = Vector2(27, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(7.15329, -17)
+scale = Vector2(0.272263, 1.62)
+texture = ExtResource("1_8chwl")
+region_enabled = true
+region_rect = Rect2(292, 0, 168, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, -63)
+scale = Vector2(0.5, 0.79)
+shape = SubResource("WorldBoundaryShape2D_2xhfo")
+
+[node name="Pipe" type="Sprite2D" parent="."]
+position = Vector2(796, 441)
+scale = Vector2(3.64693, 1.78393)
+texture = ExtResource("1_8chwl")
+region_enabled = true
+region_rect = Rect2(84, 323, 26, 160)
+
+[node name="Pipe2" type="Sprite2D" parent="."]
+position = Vector2(796, 9.99997)
+rotation = 3.14159
+scale = Vector2(3.64693, 1.78393)
+texture = ExtResource("1_8chwl")
+region_enabled = true
+region_rect = Rect2(84, 323, 26, 160)
+
+[connection signal="body_entered" from="Ground" to="Ground" method="on_body_entered"]

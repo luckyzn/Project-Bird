@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg73pdyayae1j"]
+
+[ext_resource type="Script" path="res://Scripts/main_char.gd" id="1_un7xw"]
+[ext_resource type="Texture2D" uid="uid://cjrg1h2ypyuq2" path="res://Assets/fb_background1.png" id="2_wdu08"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gjme8"]
+radius = 49.0
+height = 170.0
+
+[node name="main_char" type="CharacterBody2D"]
+position = Vector2(5, 15)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_un7xw")
+jump_action = -400
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(106.911, 49.9062)
+scale = Vector2(9.53992, 8.01562)
+texture = ExtResource("2_wdu08")
+region_enabled = true
+region_rect = Rect2(31, 491, 17, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(108, 51)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gjme8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
